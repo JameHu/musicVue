@@ -1,0 +1,123 @@
+// 颜色
+$bg-color:#d44439;
+$body-color:#f2f3f4;
+$font-color:#2e3030;
+$font-color2:#f1f1f1;
+
+
+// 颜色定义规范
+$color-background: #F2F3F4;
+$color-background-d: rgba(0, 0, 0, 0.3);
+$color-highlight-background: rgb(253, 108, 98);
+$color-dialog-background: rgb(204, 204, 204);
+$color-theme: rgb(212, 68, 57);
+$color-theme-l: rgb(241, 241, 241);
+$color-theme-g: rgb(219, 219, 219);
+$color-theme-d: rgba(19, 19, 19, 0.6);
+$color-sub-theme: rgb(240, 116, 107);
+$color-text: #2E3030;
+$color-text-g: #757575; 
+$color-text-ggg: #c7c7c7; 
+$color-text-gg: rgb(219, 219, 219); 
+$color-text-l: rgb(241, 241, 241);
+$color-text-lm: rgb(228, 228, 228);
+$color-text-ll: rgba(255, 255, 255, 0.8);
+
+//字体定义规范
+$font-size-small-ss: 9px;
+$font-size-small-s: 10px;
+$font-size-small: 11px;
+$font-size-small-x: 12px;
+$font-size-medium: 14px;
+$font-size-medium-x: 16px;
+$font-size-large-s: 17px;
+$font-size-large: 18px;
+$font-size-large-x: 22px;
+// 大小
+$size-4:14px;
+$size-5:15px;
+$size-6:16px;
+
+@mixin font($size:16px,$color:$font-color2,$line:20px) {
+  font-size:$size;
+  color:$color;
+  line-height:$line;
+}
+
+@mixin pos_l($l:0,$t:0) {
+  position: absolute;
+  top: $t;
+  left: $l;
+}
+@mixin pos_l_fixed($l:0,$t:0) {
+  position: fixed;
+  top: $t;
+  left: $l;
+  width:100%;
+}
+
+@mixin pos_r($r:0,$b:0) {
+  position: absolute;
+  right: $r;
+  bottom: $b;
+}
+
+@mixin pos_r_fixed($r:0,$b:0) {
+  position: fixed;
+  right: $r;
+  bottom: $b;
+  width:100%;
+}
+
+@mixin write(){
+   text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+@mixin rotate($n:20) {
+  @keyframes rotate {
+    0%{
+      transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  -webkit-animation: rotate $n+s infinite linear ;
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+}
+
+
+// 背景图片
+@mixin bg-image($url) { 
+  background-image: url($url + "@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+    background-image: url($url + "@3x.png");
+  }
+}
+
+// 不换行
+@mixin no-wrap() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// 扩展点击区域
+@mixin extend-click() {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
